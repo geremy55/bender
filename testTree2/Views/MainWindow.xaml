@@ -1,0 +1,38 @@
+﻿<Window x:Class="testTree2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
+        xmlns:local="clr-namespace:testTree2.Views"
+        mc:Ignorable="d"
+        Title="Bender" Height="500" Width="800" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" >
+            <Menu DockPanel.Dock="Top" Height="25" VerticalAlignment="Top" 
+              x:Name="topMenu">
+                <MenuItem Header="File" Margin="10,3,0,0" >
+                    <MenuItem Header="Open" Command="{Binding OpenFileCommand}"></MenuItem>
+                    <MenuItem Header="Save" Command="{Binding SavePictureCommand}"
+                              CommandParameter="{Binding}"></MenuItem>
+                    <Separator />
+                    <MenuItem Header="Exit" Command="{Binding CloseAppCommand}"></MenuItem>
+                </MenuItem>
+            </Menu>
+        </DockPanel>       
+        
+        <local:LeftPanel x:Name="leftPanel" Grid.Row="1" Grid.Column="0"/>        
+        <GridSplitter Grid.Column="1" Grid.Row="1" ShowsPreview="False" Width="5"
+            HorizontalAlignment="Center" VerticalAlignment="Stretch" />       
+        <local:DrawPanel x:Name="drawPanel" Grid.Row="1" Grid.Column="2" />
+               
+    </Grid>
+</Window>

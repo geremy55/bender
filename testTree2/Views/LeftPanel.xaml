@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="testTree2.Views.LeftPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:testTree2.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600">
+    <Grid x:Name="leftPanel">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Grid.Column="0"
+             HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch">
+            <TabItem Header="TabItem">
+                <Grid>
+                    <TreeView x:Name="treeView" Grid.Column="0">
+                        <TreeViewItem ItemsSource="{Binding Path=Folding}" IsExpanded="True"/>
+                    </TreeView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</UserControl>
